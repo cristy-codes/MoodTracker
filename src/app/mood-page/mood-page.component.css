@@ -1,0 +1,128 @@
+.mood-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-gap: 20px;
+  height: calc(100vh - 150px);
+  padding: 75px;
+  background-color: #fefae0;
+}
+
+.mood-page__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr;
+  grid-gap: 20px;
+}
+
+.mood-title {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  /* justify-content: center; */
+  font-size: 64px;
+}
+
+.mood-list {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  position: relative;
+}
+
+.mood-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.mood-card__img {
+  height: 100%;
+  width: 100%;
+  background: #ccd5ae;
+  border-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.mood-card__img,
+.mood-card__dsc {
+  flex: 1;
+}
+
+.mood-card__dsc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mood-card__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 16px;
+}
+
+.mood-card[data-selected="true"] {
+  box-shadow: #d4a373 0px 0px 0px 3px;
+}
+
+.mood-handtracker {
+  display: grid;
+  justify-content: center;
+}
+
+.mood-handtracker__legend > div {
+  margin-bottom: 16px;
+}
+
+.mood-handtracker__legend > div:last-child {
+  margin-bottom: 0;
+}
+
+.legend_item {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 16px;
+}
+
+.legend_item:last-child {
+  border-bottom: none;
+}
+
+.legend_item-title {
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1000px) {
+  .mood-title {
+    font-size: 32px;
+  }
+
+  .mood-list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .mood-page__wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+
+  .mood-handtracker {
+    justify-content: flex-start;
+  }
+
+  .mood-handtracker__legend {
+    margin-top: 16px;
+  }
+}

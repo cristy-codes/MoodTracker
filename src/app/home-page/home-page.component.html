@@ -1,0 +1,50 @@
+<div class="home-main">
+  <div class="home-header">
+    <div>
+      <div class="home-start">Welcome!</div>
+      <div class="home-start__ins">Open two hands to log your mood.</div>
+    </div>
+    <div class="home_video">
+      <app-handtracker (onPrediction)="prediction($event)"></app-handtracker>
+      <div [innerHTML]="gesture"></div>
+    </div>
+  </div>
+
+  <div class="log_legend">
+  <div class="logs">
+    <div *ngIf="logs.length" class="logs_header">
+      <div>Date</div>
+      <div>Mood</div>
+    </div>
+    <div
+      *ngFor="let log of logs; let i = index"
+      class="logs_row"
+      [attr.data-selected]="i === selectedLog"
+    >
+      <div>{{ log.date }}</div>
+      <div>{{ log.o.label }}</div>
+      <div class="mood__icon">
+        <img [src]="log.o.img" alt="image" />
+      </div>
+    </div>
+  </div>
+
+  <div class="home-handtracker__legend">
+    <div class="legend_item">
+      <h5 class="legend_item-title">One Open, One Closed Hand</h5>
+      <p>Move log selector down</p>
+    </div>
+    <div class="legend_item">
+      <h5 class="legend_item-title">One Pointing, One Closed Hand</h5>
+      <p>Move log selector up</p>
+    </div>
+    <div class="legend_item">
+      <h5 class="legend_item-title">Two Hands Pointing</h5>
+      <p>Delete log entry</p>
+    </div>
+  </div>
+</div>
+  <div *ngIf="!logs.length">
+    No moods have been logged
+  </div>
+</div>

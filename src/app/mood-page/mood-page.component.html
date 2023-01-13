@@ -1,0 +1,44 @@
+<div class="mood-page">
+  <!-- <button (click)="decrement()">-</button>
+    {{getMoodDescription()}}
+    <input type="range" step="true">
+    <button (click)="increment()">+</button> -->
+  <div class="mood-title">How are you feeling?</div>
+  <div class="mood-page__wrapper">
+    <div class="mood-list">
+      <div
+        *ngFor="let mood of moods; let i = index"
+        class="mood-card"
+        [attr.data-selected]="currentMood === i + 1"
+      >
+        <img class="mood-card__img" [src]="mood.img" alt="image" />
+        <div class="mood-card__dsc">
+          <div class="mood-card__num">{{ i + 1 }}</div>
+          <div>{{ mood.label }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="mood-handtracker">
+      <app-handtracker (onPrediction)="onPrediction($event)"></app-handtracker>
+      <div [innerHTML]="gesture"></div>
+      <div class="mood-handtracker__legend">
+        <div class="legend_item">
+          <h5 class="legend_item-title">One open hand</h5>
+          <p>Move mood selector to the right</p>
+        </div>
+        <div class="legend_item">
+          <h5 class="legend_item-title">One closed hand</h5>
+          <p>Move mood selector to the left</p>
+        </div>
+        <div class="legend_item">
+          <h5 class="legend_item-title">Two closed hands</h5>
+          <p>Selected mood is chosen and logged</p>
+        </div>
+        <div class="legend_item">
+          <h5 class="legend_item-title">One Hand Pointing</h5>
+          <p>Cancel choosing mood and go back home</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
